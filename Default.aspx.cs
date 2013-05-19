@@ -13,5 +13,23 @@ namespace PHP_Drug_Interaction_UI
         {
 
         }
+
+        protected void txtDrugList_TextChanged(object sender, EventArgs e)
+        {
+            string comptext = txtDrugList.Text;
+
+            DrugNameCompService service = new DrugNameCompService();
+
+            string drugName = service.getCompletionList(comptext, 3);
+            if (drugName != "")
+            {
+                txtDrugList.Text = drugName;
+            }
+            else
+            {
+                txtDrugList.Text = comptext;
+            }
+            
+        }
     }
 }

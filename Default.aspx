@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
     <div>
-    
+        <asp:TextBox ID="txtDrugList" runat="server" OnTextChanged="txtDrugList_TextChanged"></asp:TextBox>
     </div>
     </form>
 </body>
