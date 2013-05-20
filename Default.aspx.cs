@@ -11,9 +11,12 @@ namespace PHP_Drug_Interaction_UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+          
         }
-
+        public void openPopUP(string URL) 
+        {
+            ClientScript.RegisterStartupScript(this.GetType(), "newWindow",String.Format(String.Format("<script>window.open('{0}');</script>",URL)));
+        }
         protected void txtDrugList_TextChanged(object sender, EventArgs e)
         {
             string comptext = txtDrugList.Text;
@@ -24,10 +27,16 @@ namespace PHP_Drug_Interaction_UI
             if (drugName != "")
             {
                 txtDrugList.Text = drugName;
+                openPopUP("drugInfo.aspx");
             }
             else
             {
                 txtDrugList.Text = comptext;
+            }
+
+            if (Session["PopUP_Result"]=="OK")
+            {
+                
             }
             
         }
